@@ -32,6 +32,7 @@ TEL_EXPERT = "+33 9 78 45 08 04"
 MODEL_NAME = "gemini-3.6-flash"
 
 # --- CLEFS ET APIS ---
+"""
 try:
     GEMINI_KEY = st.secrets["GEMINI_API_KEY"]
     SUPABASE_URL = st.secrets["SUPABASE_URL"]
@@ -39,7 +40,17 @@ try:
 except Exception:
     GEMINI_KEY = os.getenv("GEMINI_API_KEY", "AQ.Ab8RN6L0YJJ2eNOn8Ua5r1a2IUf9reS5CuYSKXgILgxL1syc-g")
     SUPABASE_URL = os.getenv("SUPABASE_URL", "https://cxxedrancliecjytjwon.supabase.co")
-    SUPABASE_KEY = os.getenv("SUPABASE_KEY", "sb_publishable_y3STlqWN9_1igpEE3Ip4zg_6c82QYhk")
+    SUPABASE_KEY = os.getenv("SUPABASE_KEY", "sb_publishable_y3STlqWN9_1igpEE3Ip4zg_6c82QYhk") 
+
+"""
+try:
+    GEMINI_KEY = st.secrets["GEMINI_API_KEY"]
+    SUPABASE_URL = st.secrets["SUPABASE_URL"]
+    SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
+except Exception:
+    GEMINI_KEY = os.getenv("GEMINI_API_KEY")
+    SUPABASE_URL = os.getenv("SUPABASE_URL")
+    SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 if not GEMINI_KEY or not SUPABASE_URL or not SUPABASE_KEY:
     st.error("Clés d'API manquantes. Assure-toi de configurer .streamlit/secrets.toml ou tes variables d'environnement.")
